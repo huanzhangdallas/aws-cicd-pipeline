@@ -1,6 +1,6 @@
 terraform{
     backend "s3" {
-        bucket = "pipeline-artifacts-huanzhang"
+        bucket = "pipeline-state-huanzhang"
         encrypt = true
         key = "terraform.tfstate"
         region = "us-east-1"
