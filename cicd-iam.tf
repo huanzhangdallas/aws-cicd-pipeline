@@ -22,12 +22,6 @@ EOF
 data "aws_iam_policy_document" "tf-cicd-pipeline-policies" {
     statement{
         sid = ""
-        actions = ["codestar-connections:UseConnection"]
-        resources = ["*"]
-        effect = "Allow"
-    }
-    statement{
-        sid = ""
         actions = ["cloudwatch:*", "s3:*", "codebuild:*"]
         resources = ["*"]
         effect = "Allow"
@@ -46,6 +40,10 @@ resource "aws_iam_role_policy_attachment" "tf-cicd-pipeline-attachment" {
     role = aws_iam_role.tf-codepipeline-role.id
 }
 
+resource "aws_iam_role_policy_attachment" "tf-cicd-pipeline-attachment1" {
+    policy_arn = "arn:aws:iam::aws:policy/AWSCodeCommitFullAccess"
+    role = aws_iam_role.tf-codepipeline-role.id
+}
 
 resource "aws_iam_role" "tf-codebuild-role" {
   name = "tf-codebuild-role"
