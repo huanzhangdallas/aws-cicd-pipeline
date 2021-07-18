@@ -1,1 +1,1 @@
-dockerhub_credentials = "arn:aws:secretsmanager:us-east-1:408345364506:secret:codebuild/dockerhub-3sQyPA"
+dockerhub_credentials = "arn:aws:secretsmanager:us-east-1:609868048357:secret:codebuild/dockerhub-xOcTwU"
