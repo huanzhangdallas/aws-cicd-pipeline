@@ -65,14 +65,12 @@ resource "aws_codepipeline" "cicd_pipeline" {
             name = "Source"
             category = "Source"
             owner = "AWS"
-            provider = "CodeStarSourceConnection"
+            provider = "CodeCommit"
             version = "1"
             output_artifacts = ["tf-code"]
             configuration = {
-                FullRepositoryId = "davoclock/aws-cicd-pipeline"
-                BranchName   = "master"
-                ConnectionArn = var.codestar_connector_credentials
-                OutputArtifactFormat = "CODE_ZIP"
+               RepositoryName = "cicd"
+               BranchName     = "master"
             }
         }
     }
